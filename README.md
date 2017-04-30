@@ -1,2 +1,2 @@
 # generative-art
-Repository used for saving https://processing.org sketches
+Repository used for saving processing/p5js sketches
