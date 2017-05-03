@@ -1,35 +1,25 @@
 function setup() {
-    createCanvas(650, 650);
+    createCanvas(450, 450);
+    background(0)
     stroke(177);
     frameRate(30);
 }
 
-var y = 10;
-var tempX = -10;
+var textX = 125;
+var textY = 225;
 
-var x = 10;
-var tempY = -10;
+var mosDef = "Booka Ha hah You know the deal It's just me yo Beats by Su-Primo for all of my peoples, negroes and latinos and even the gringos";
+var res = mosDef.split(" ");
+var counter = 0;
 
 function draw() {
-    background(0);
-    y = y + tempY;
-    x = x + tempX;
-
-    if(x < 0 || x > width - 30) {
-        tempX *= -1;
+    clear();
+    if(frameCount % 10 == 0 && counter + 1 < res.length) {
+        counter++;
     }
-
-    for(var i = 0; i < 5; i++) {
-        stroke(random(0, 255), random(0, 255), random(0, 255));
-        line(x + i, 0, x + i, height);
+    for(var i = 50; i >= 0; i--) {
+        fill(random(0, 255), random(0, 255), random(0, 255));
+        textSize(50);
+        text(res[counter], textX - i * 5, textY + i * 5);
     }
-
-    if(y < 0 || y > height - 30) {
-        tempY *= -1;
-    }
-    for(var i = 0; i < 5; i++) {
-        stroke(random(0, 255), random(0, 255), random(0, 255));
-        line(0, y + i, width, y + i);
-    }
-    
 }
