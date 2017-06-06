@@ -16,7 +16,6 @@ function draw() {
 
     for(var i = 0; i < creatures.length; i++) {
         creatures[i].move();
-        creatures[i].mutateColor();
         creatures[i].render();
     }
 }
@@ -31,12 +30,6 @@ function Creature() {
     this.render = function() {
         stroke(this.colorR, this.colorG, this.colorB);
         ellipse(this.x, this.y, 5, 5);
-    };
-
-    this.mutateColor = function() {
-        this.colorR += 1;
-        this.colorG += 1;
-        this.colorB += 1;
     };
 
     this.move = function() {
