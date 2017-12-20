@@ -8,3 +8,4 @@ Repository used for saving p5.js sketches
 * [Color worms](https://ljmocic.github.io/generative-art/p5/4/)
 * [Lyrics](https://ljmocic.github.io/generative-art/p5/5/)
 * [Math.random()](https://ljmocic.github.io/generative-art/p5/6/)
+* [Triangle-box pattern](https://ljmocic.github.io/generative-art/p5/7/)
