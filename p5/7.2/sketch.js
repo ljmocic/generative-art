@@ -1,11 +1,11 @@
-var waitingForPallete = false;
+var waitingForpalette = false;
 var drawingActive = false;
 var x = 0, y = 0;
 var rectSize = 20;
 var palette;
 
 function preload() {
-    getPalleteFromAPI();
+    getpaletteFromAPI();
 }
 
 function setup() {
@@ -20,14 +20,14 @@ function draw() {
 
         while (y < window.innerHeight) {
             if (random(1) < 0.5) {
-                fillRandomFromPallete();
+                fillRandomFromPalette();
                 triangle(x, y, x, y + rectSize, x + rectSize, y);
-                fillRandomFromPallete();
+                fillRandomFromPalette();
                 triangle(x + rectSize, y + rectSize, x, y + rectSize, x + rectSize, y);
             } else {
-                fillRandomFromPallete();
+                fillRandomFromPalette();
                 triangle(x, y, x, y + rectSize, x + rectSize, y + rectSize);
-                fillRandomFromPallete();
+                fillRandomFromPalette();
                 triangle(x + rectSize, y, x, y, x + rectSize, y + rectSize);
             }
 
@@ -55,13 +55,13 @@ function showLoading() {
     text(centerText, centerTextX, centerTextY);
 }
 
-function fillRandomFromPallete() {
+function fillRandomFromPalette() {
     var randomValue = random(palette.length);
     var colorIndex = Math.floor(randomValue);
     fill(palette[colorIndex][0], palette[colorIndex][1], palette[colorIndex][2]);
 }
 
-function getPalleteFromAPI() {
+function getpaletteFromAPI() {
     var http = new XMLHttpRequest();
 
     var url = "http://colormind.io/api/";
