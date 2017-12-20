@@ -4,11 +4,9 @@ function setup() {
     frameRate(30);
 }
 
-var offset = 20,
-    columnSpace = 90;
+var offset = 20, columnSpace = 90;
 
-var x = offset,
-    y = 0;
+var x = offset, y = 0;
 
 var centerText = "Math.random()";
 var centerTextSize = 15;
@@ -19,10 +17,10 @@ function draw() {
 
     clear();
     background(0);
-    textSize(15);
-    fill(254, 67, 101);
-
+    
     while (y < window.innerHeight) {
+        textSize(15);
+        fill(254, 67, 101);
         text(random(10).toFixed(7), x, y);
         x += columnSpace;
         if (x > window.innerWidth) {
@@ -30,8 +28,9 @@ function draw() {
             y += 25;
         }
     }
+    y = 0;
 
-    fill(255, 255, 255);
     textSize(55);
+    fill(255, 255, 255);
     text(centerText, centerTextX, centerTextY);
 }
