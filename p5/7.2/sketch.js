@@ -1,14 +1,18 @@
-function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
-    background(0);
-    frameRate(120);
-    getPalleteFromAPI();
-}
-
+var waitingForPallete = false;
 var drawingActive = false;
 var x = 0, y = 0;
 var rectSize = 20;
 var palette;
+
+function preload() {
+    getPalleteFromAPI();
+}
+
+function setup() {
+    createCanvas(window.innerWidth, window.innerHeight);
+    background(255);
+    frameRate(120);
+}
 
 function draw() {
 
@@ -39,15 +43,12 @@ function draw() {
         }
 
     }
-    else {
-        showLoading();
-    }
 }
 
 function showLoading() {
     var centerTextSize = 20;
     var centerText = "Loading random palette from colormind API...";
-    var centerTextX = window.innerWidth / 2  - centerText.length * centerTextSize / 3;
+    var centerTextX = window.innerWidth / 2 - centerText.length * centerTextSize / 3;
     var centerTextY = window.innerHeight / 2;
     textSize(centerTextSize);
     fill(255, 255, 255);
@@ -62,7 +63,7 @@ function fillRandomFromPallete() {
 
 function getPalleteFromAPI() {
     var http = new XMLHttpRequest();
-    
+
     var url = "http://colormind.io/api/";
     var data = {
         model: "default",
@@ -74,15 +75,20 @@ function getPalleteFromAPI() {
             [44, 43, 44]
         ]
     }
-    
+
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
             palette = JSON.parse(http.responseText).result;
             drawingActive = true;
-            clear();
+            removeLoadingMessage();
         }
     }
-    
+
     http.open("POST", url, true);
     http.send(JSON.stringify(data));
+}
+
+function removeLoadingMessage() {
+    var p = document.body.getElementsByTagName("p")[0];
+    document.body.removeChild(p);
 }
