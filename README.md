@@ -11,6 +11,8 @@ Repository used for saving p5.js sketches
 * [Print10 inspired mosaic](https://ljmocic.github.io/generative-art/p5/7.1/)
 * [3D Knot](https://ljmocic.github.io/generative-art/p5/8/)
 * [WebGL Cube generator](https://ljmocic.github.io/generative-art/p5/9/)
+* [Random lines in space](https://ljmocic.github.io/generative-art/p5/10.1/)
 
 ## Offline preview
 * [Mosaic with Colormind.io API](https://github.com/ljmocic/generative-art/tree/master/p5/7.2)
+* [Random lines in space 3D](https://ljmocic.github.io/generative-art/p5/10.2/)
