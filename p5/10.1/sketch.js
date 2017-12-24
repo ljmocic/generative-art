@@ -8,23 +8,17 @@ var x = 400;
 var y = 400;
 var z = 400;
 
-var rotation = 0;
-
 var objects = new Array();
-var numberOfObjects = 10;
+var numberOfObjects = 25;
 
 function draw() {
     background(255);
-    rotateX(rotation);
-    //rotateY(rotation);
-    rotateZ(rotation);
-    rotation += 0.005;
     translate(-x / 2, -y / 2, -z / 2)
     for (var i = 0; i < numberOfObjects; i++) {
         objects[i].render();
     }
 
-    if (frameCount % 120 == 0) {
+    if (frameCount % 5 == 0) {
         generateObjects();
     }
 }
